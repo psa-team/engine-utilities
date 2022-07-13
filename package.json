@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psa-team/engine-utilities.git"
+  },
   "scripts": {
     "build": "rollup -c",
     "test": "jest"
