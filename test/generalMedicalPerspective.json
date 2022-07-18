@@ -1,0 +1,122 @@
+﻿{
+  "generalMedicalPerspective": {
+    "id": 50,
+    "name": "Общий врачебный ракурс",
+    "views": {
+      "dashboard": {
+        "id": 51,
+        "name": "Дашборд",
+        "content": {
+          "disabilityWidget": {
+            "entityType": "widget",
+            "commands": {
+              "openDialog": {
+                "view": {
+                  "disability": {
+                    "$ref": "#/generalMedicalPerspective/views/disability"
+                  }
+                }
+              }
+            },
+            "entity": {
+              "disability": {
+                "$ref": "#/generalMedicalPerspective/domains/medical/entities/disability"
+              }
+            }
+          },
+          "dispensaryObservationWidget": {
+            "entityType": "widget"
+          },
+          "clinicAttachmentWidget": {
+            "entityType": "widget"
+          },
+          "vaccinationWidget": {
+            "entityType": "widget"
+          },
+          "test": {
+            "entityType": "widget"
+          }
+        },
+        "transitions": [
+          {
+            "disability": {
+              "$ref": "#/generalMedicalPerspective/views/disability"
+            }
+          },
+          {
+            "dispensaryObservation": {
+              "$ref": "#/generalMedicalPerspective/views/dispensaryObservation"
+            }
+          },
+          {
+            "clinicAttachment": {
+              "$ref": "#/generalMedicalPerspective/views/clinicAttachment"
+            }
+          }
+        ]
+      },
+      "disability": {
+        "id": 52,
+        "name": "Инвалидность",
+        "content": {
+          "disabilityDetails": {
+            "entityType": "form",
+            "entity": {
+              "disability": {
+                "$ref": "#/generalMedicalPerspective/domains/medical/entities/disability"
+              }
+            }
+          }
+        },
+        "options": [
+          "dialog"
+        ]
+      },
+      "dispensaryObservation": {
+        "id": 53,
+        "name": "Диспансерное наблюдение",
+        "options": [
+          "pageOnNewTab",
+          "noLayout"
+        ]
+      },
+      "clinicAttachment": {
+        "id": 54,
+        "name": "Прикрепление к поликлинике",
+        "options": [
+          "page"
+        ]
+      }
+    },
+    "startView": {
+      "dashboard": {
+        "$ref": "#/generalMedicalPerspective/views/dashboard"
+      }
+    },
+    "layouts": {
+      "layout1": {},
+      "appLayout": {}
+    },
+    "defaultLayout": {
+      "appLayout": {
+        "$ref": "#/generalMedicalPerspective/layouts/appLayout"
+      }
+    },
+    "domains": {
+      "medical": {
+        "id": 202,
+        "name": "Медицинские данные",
+        "entities": {
+          "disability": {
+            "id": 57,
+            "name": "Инвалидность"
+          }
+        }
+      },
+      "personal": {
+        "id": 203,
+        "name": "Персональные данные"
+      }
+    }
+  }
+}
